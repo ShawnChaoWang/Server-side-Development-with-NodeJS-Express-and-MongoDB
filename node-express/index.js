@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const hostname = 'localhost';
 const port = 3000;
 const app = express();
+const dishRouter = require('./routes/dishRouter');
+
+app.use('/dishes', dishRouter);
 
 app.use(morgan('dev'));
 
