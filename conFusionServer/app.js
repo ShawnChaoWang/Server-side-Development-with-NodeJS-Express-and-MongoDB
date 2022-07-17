@@ -23,6 +23,7 @@ const mongoose = require('mongoose');
 const Dishes = require('./models/dishes');
 
 const url = config.mongoUrl;
+const uploadRouter = require('./routes/uploadRouter');
 const connect = mongoose.connect(url);
 
 connect.then((db) => {
@@ -48,6 +49,7 @@ app.set('view engine', 'jade');
 app.use('/dishes',dishRouter);
 app.use('/promotions',promoRouter);
 app.use('/leaders',leaderRouter);
+app.use('/imageUpload',uploadRouter);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
